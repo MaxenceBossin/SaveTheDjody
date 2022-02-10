@@ -59,7 +59,8 @@ class Player {
         $vertical   = $position[0]+$move[0];
         $horizontal = $position[1]+$move[1];
         $newPossition = [$vertical,$horizontal];
-        if($vertical == -1 || $vertical == count($map)){
+        //
+        if($vertical == -1 || $vertical == 4){
             // on anule
             echo'tu ne peux pas aller par là';
             echo "\n";
@@ -83,9 +84,9 @@ class Player {
                 // faire une méthode pour que le perso est le panneaux
                 // novelle map
                 // la position actuelle devient 0
-                $map = changeMap($map,$position[0], $position[1],0);
+                $map = $this->changeMap($map,$position[0], $position[1],0);
                 // la nouvelle position  devient P (celle du joueur)
-                $map = changeMap($map,$vertical, $horizonta,'P');
+                $map = $this->changeMap($map,$vertical, $horizonta,'P');
                 return $map;
 
             }elseif($map[$vertical][$horizontal] === 'E'){
@@ -102,9 +103,9 @@ class Player {
                 echo'OK ça à l\' air d\' être sur !';
                 echo "\n";
                 // showMap
-                $map = changeMap($map,$position[0], $position[1],0);
+                $map = $this->changeMap($map,$position[0], $position[1],0);
                 // la nouvelle position  devient P (celle du joueur)
-                $map = changeMap($map,$vertical, $horizonta,'P');
+                $map = $this->changeMap($map,$vertical, $horizontal,'P');
                 return $map;
             }
         }

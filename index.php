@@ -6,7 +6,8 @@ $player    = new Player();
 $game    = new Game($player);
 
 //init de la map
-$map = $game->init();
+$game->init();
+$map = $game->getMap();
 // copie de la map
 $game->launch();
 $game->showMap();
