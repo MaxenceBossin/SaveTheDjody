@@ -20,10 +20,8 @@ class Player {
         $this->items = $items;
     }
     public function setPanneauStop($panneauStop){
-        $this->items = $panneauStop;
+        $this->panneauStop = $panneauStop;
     }
-
-
     // position du player
     public function playerPosition($map)
     {
@@ -32,8 +30,6 @@ class Player {
             for($cell = 0; $cell < count($map[$line]); $cell++){
                 if($map[$line][$cell] === 'P'){
                     $position=[$line, $cell];
-                    echo "tu es actuellement en postion  : ";
-                    print_r($position);                    
                 }
             }
             echo "\n";
@@ -86,7 +82,7 @@ class Player {
                 echo "\n";
                 // on place le paneau dans son inventaire
                 $this->setPanneauStop(true);
-                
+                var_dump($this->getPanneauStop());
                 // faire une méthode pour que le perso est le panneaux
                 // novelle map
                 
@@ -102,8 +98,10 @@ class Player {
                 echo "\n";
                 echo'Defonce la porte  !';
                 echo "\n";
+                
                 //tester si on a le panneau
-                if($this->getPanneauStop !== true){
+                var_dump($this->getPanneauStop());
+                if($this->getPanneauStop() !== true){
                     echo "\n";
                     echo'Dimitry est là OH nononononononon !';
                     echo "\n";
@@ -137,13 +135,7 @@ class Player {
                 $map = $this->changeMap($map,$vertical, $horizontal,'P');
                 return $map;
             }
-        }
-        
-        
-        $newPossition = [$vertical,$horizontal];
-        echo "Nouvelle position  vertical :";
-        print_r($newPossition);
-        echo "\n";        
+        }   
         return $isValidMove;
     }
 

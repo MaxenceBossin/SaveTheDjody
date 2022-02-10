@@ -20,7 +20,6 @@ while($map !== 'end'){
     $move        = $game->playerChoice();
     $playerPosition = $game->getPlayer()->playerPosition($map);
     $map = $game->getPlayer()->checkMoveValide($game->getMap(), $playerPosition , $move);
-    print_r($map);
     if($map === 'end'){
         break;
     }else {
@@ -28,7 +27,6 @@ while($map !== 'end'){
         // on remontre la map apres le mouvement
         $game->showMap();
     }  
-
 }
 
 
