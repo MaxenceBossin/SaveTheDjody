@@ -1,18 +1,26 @@
 <?php
 class Player {
     protected $items;
+    protected $panneauStop;
 
     
     function __construct(){
         $this->items  = [];
+        $this->panneauStop  = false;
     }
 
     public function getItems(){
         return $this->items;
     }
+    public function getPanneauStop(){
+        return $this->panneauStop;
+    }
 
     public function setItems($items){
         $this->items = $items;
+    }
+    public function setPanneauStop($panneauStop){
+        $this->items = $panneauStop;
     }
 
 
@@ -76,13 +84,17 @@ class Player {
                 echo "\n";
                 echo'Maintenant on sort !';
                 echo "\n";
+                // on place le paneau dans son inventaire
+                $this->setPanneauStop(true);
+                
                 // faire une méthode pour que le perso est le panneaux
                 // novelle map
                 
                 // la nouvelle position  devient P (celle du joueur)
-                $map = $this->changeMap($map,$vertical, $horizonta,'P');
+                $map = $this->changeMap($map,$vertical, $horizontal,'P');
                 // la position actuelle devient 0
                 $map = $this->changeMap($map,$position[0], $position[1],0);
+
                 return $map;
 
             }elseif($map[$vertical][$horizontal] === 'E'){
@@ -91,9 +103,30 @@ class Player {
                 echo'Defonce la porte  !';
                 echo "\n";
                 //tester si on a le panneau
+                if($this->getPanneauStop !== true){
+                    echo "\n";
+                    echo'Dimitry est là OH nononononononon !';
+                    echo "\n";
+                    echo "\n";
+                    echo'Djody au cachot PARTIE PERDU';
+                    echo "\n";
+                    echo'GAME OVER';
+                }else{
+                    echo "\n";
+                    echo'PRANKED !!!';
+                    echo "\n";
+                    echo'Dimitry était là depuis le debut';
+                    echo "\n";
+                    echo "\n";
+                    echo'Mais bon il avait trop bu';
+                    echo "\n";
+                    echo'Grace à ton panneaux tu t en vas discrement';
+                    echo "\n";
+                    echo'Bien ouej : GAME OVER';
+                }
                 // sinon on se fait areter par dimitri
                 // sinon on fait la rev
-                $isValidMove = true;
+                $isValidMove = 'end';
 
             }else{
                 echo'OK ça à l\' air d\' être sur !';
