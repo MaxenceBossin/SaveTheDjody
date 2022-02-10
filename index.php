@@ -12,18 +12,19 @@ $map = $game->getMap();
 $game->launch();
 $game->showMap();
 // $playerPosition = $game->getPlayer()->playerPosition($game->getMap());
-$playerPosition = $game->getPlayer()->playerPosition($map);
+
 
 // check le déplacement 
-$isValidMove = 'false';
-while($isValidMove !== 'end'){
+$isValidMove = [];
+while($map !== 'end'){
     $move        = $game->playerChoice();
-    $isValidMove = $game->getPlayer()->checkMoveValide($game->getMap(), $playerPosition , $move);
-    if($isValidMove !== 'end'){        
-        $map = $game->setMap($isValidMove);
+    $playerPosition = $game->getPlayer()->playerPosition($map);
+    $map = $game->getPlayer()->checkMoveValide($game->getMap(), $playerPosition , $move);
+     print_r($map);
+    $game->setMap($map);
         // on remontre la map apres le mouvement
         $game->showMap();
-    }
+    
 
 }
 

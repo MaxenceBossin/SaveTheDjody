@@ -41,24 +41,19 @@ class Player {
 
     public function checkMoveValide($map, $position, $move)
     {   
-        $isValidMove = false;
-        echo "Carte : ";
-        echo "\n";
-        print_r($map);
-        echo "position : ";
-        echo "\n";
-        print_r($position);
-        echo "Carte : ";
-        echo "\n";
-        print_r($move);
+        $isValidMove = $map;
         // On test de faire la nouvelle position on la verefie apres si c'est ok ou non
         // si ok on change la position plus la map
         // si KO on annule la position et on rappelle la fonction playerChoice pour que Djody 
         // se déplace denouveaux
         // à changer les key 4 et 5
-        $vertical   = $position[0]+$move[0];
-        $horizontal = $position[1]+$move[1];
-        $newPossition = [$vertical,$horizontal];
+        $vertical     = $position[0]+$move[0];
+        $horizontal   = $position[1]+$move[1];
+        echo "\n";
+        echo"vertical : $vertical ";
+        echo "\n";
+        echo"horizontal : $horizontal ";
+        echo "\n";
         //
         if($vertical == -1 || $vertical == 4){
             // on anule
@@ -83,10 +78,11 @@ class Player {
                 echo "\n";
                 // faire une méthode pour que le perso est le panneaux
                 // novelle map
-                // la position actuelle devient 0
-                $map = $this->changeMap($map,$position[0], $position[1],0);
+                
                 // la nouvelle position  devient P (celle du joueur)
                 $map = $this->changeMap($map,$vertical, $horizonta,'P');
+                // la position actuelle devient 0
+                $map = $this->changeMap($map,$position[0], $position[1],0);
                 return $map;
 
             }elseif($map[$vertical][$horizontal] === 'E'){
