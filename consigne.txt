@@ -1,0 +1,24 @@
+OK
+1) Créer une class GaME 
+    - attribue "$map" + get / setter
+OK
+2) Créer une méthode "init()"
+    qui va update la map vide et la remplir
+    creer method -> showMap
+
+OK
+3) Créer une copie de map qui servira de calque déplacement des joueurs 
+TODO :   
+4) créer une class player avec Items
+
+TODO:
+5) Creer dans game les méthodes
+    TODO: methode -> launch :: 
+            -> affiche une intro 
+            -> appel la methode :: playerChoice() HautBasGaucheDroite
+
+TODO:
+6) Créer dans player les méthodes 
+    -> check destation
+        get map 
+
