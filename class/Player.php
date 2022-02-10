@@ -81,7 +81,12 @@ class Player {
                 echo'Maintenant on sort !';
                 echo "\n";
                 // faire une méthode pour que le perso est le panneaux
-
+                // novelle map
+                // la position actuelle devient 0
+                $map = changeMap($map,$position[0], $position[1],0);
+                // la nouvelle position  devient P (celle du joueur)
+                $map = changeMap($map,$vertical, $horizonta,'P');
+                return $map;
 
             }elseif($map[$vertical][$horizontal] === 'E'){
                 echo'C la sorti !';
@@ -97,6 +102,10 @@ class Player {
                 echo'OK ça à l\' air d\' être sur !';
                 echo "\n";
                 // showMap
+                $map = changeMap($map,$position[0], $position[1],0);
+                // la nouvelle position  devient P (celle du joueur)
+                $map = changeMap($map,$vertical, $horizonta,'P');
+                return $map;
             }
         }
         
