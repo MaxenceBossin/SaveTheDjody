@@ -30,10 +30,10 @@ class Game {
     // inialise la map
     public function init(){
         $map = [
-                [0  , 0, 0 , 'P' ,'K'],
-                [0  , 1, 1 , 0, 1 ],
-                [0, 1, 0 ,0 , 0 ],
-                [0  ,0 ,0 , 0,'E'],
+                ['P', 0, 1 , 0 ,'K'],
+                [0  , 1, 1 , 0,  1 ],
+                [0  , 1, 0 ,0 ,  0 ],
+                [0  ,0 , 0 , 0, 'E'],
         ];
         $this->setMap($map);
         $this->setPlayerPos($this->getMap());

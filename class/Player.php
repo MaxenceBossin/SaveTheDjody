@@ -32,8 +32,12 @@ class Player {
         }
         return $position;
     }
-
-
+    // prend la map, la postion, et le chartère par quoi on va changer
+    private function changeMap( $map,int $vertical,int $horizontal, $change)
+    {   
+        $map[$vertical][$horizontal] = $change ;
+        return $map;
+    }
 
     public function checkMoveValide($map, $position, $move)
     {   
@@ -77,6 +81,8 @@ class Player {
                 echo'Maintenant on sort !';
                 echo "\n";
                 // faire une méthode pour que le perso est le panneaux
+
+
             }elseif($map[$vertical][$horizontal] === 'E'){
                 echo'C la sorti !';
                 echo "\n";
@@ -85,6 +91,8 @@ class Player {
                 //tester si on a le panneau
                 // sinon on se fait areter par dimitri
                 // sinon on fait la rev
+                $isValidMove = true;
+
             }else{
                 echo'OK ça à l\' air d\' être sur !';
                 echo "\n";
